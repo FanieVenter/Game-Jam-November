@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4ig8m6vkffen"]
+
+[ext_resource type="Texture2D" uid="uid://baxmvdkf2nrpa" path="res://Mountian.png" id="1_xdkye"]
+
+[node name="Mountian" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.6, 0.6)
+
+[node name="Mountian2" type="Sprite2D" parent="."]
+texture = ExtResource("1_xdkye")

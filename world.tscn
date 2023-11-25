@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3te8v23hskq7"]
+
+[ext_resource type="PackedScene" uid="uid://b4ig8m6vkffen" path="res://mountian.tscn" id="1_x4jjq"]
+[ext_resource type="Texture2D" uid="uid://x3o3ie5n7gdi" path="res://boots.png" id="2_6gu34"]
+[ext_resource type="Script" path="res://Area2D.gd" id="3_qqxrn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jt1ku"]
+size = Vector2(79.9996, 40.0001)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5myan"]
+
+[node name="World" type="Node2D"]
+
+[node name="Mountian" parent="." instance=ExtResource("1_x4jjq")]
+position = Vector2(0, -3)
+
+[node name="Boots" type="Sprite2D" parent="." groups=["boots"]]
+position = Vector2(246, 151)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_6gu34")
+
+[node name="Area2D" type="Area2D" parent="Boots" groups=["boots"]]
+scale = Vector2(1, 1)
+script = ExtResource("3_qqxrn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boots/Area2D" groups=["boots"]]
+position = Vector2(-0.000488281, -10)
+shape = SubResource("RectangleShape2D_jt1ku")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_5myan")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0, -3)
+polygon = PackedVector2Array(-1, -2, -58, -2, -91, 12, -99, 23, -99, 30, -40, 34, -31, 44, -20, 52, -8, 54, 15, 71, 61, 118, 137, 125, 160, 77, 204, 63, 287, 64, 303, 63, 318, 80, 331, 112, 334, 153, 320, 154, 301, 165, 268, 172, 266, 156, 228, 157, 225, 158, 223, 174, 159, 173, 89, 160, 41, 135, -8, 90, -28, 79, -95, 69, -127, 88, -266, 179, -421, 237, -604, 295, -816, 358, -963, 413, -966, 551, 362, 544, 963, 542, 960, -544, 684, -539, 616, -501, 503, -450, 369, -357, 136, -172)
